@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataSpy Technologies | Enterprise AI & Talent Ecosystem</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.js"></script>
+
+    <style>
+        /* --- DYNAMIC THEME VARIABLES --- */
+        :root {
+            /* Constant Colors */
+            --ruby: #E0115F;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            
+            /* Theme Dependent (Default Dark) */
+            --bg-body: #0D0D0D;
+            --bg-navbar: rgba(13, 13, 13, 0.8);
+            --bg-card: #1A1C21;
+            --bg-input: #111111;
+            --text-main: #F9FAFB;
+            --text-muted: #C4C4C4;
+            --gold: #D4A76A;
+            --border: rgba(255, 255, 255, 0.05);
+            --ruby-glow: rgba(224, 17, 95, 0.4);
+            --gold-glow: rgba(212, 167, 106, 0.3);
+            --shadow: transparent;
+        }
+
+        [data-theme="light"] {
+            --bg-body: #F9FAFB;
+            --bg-navbar: rgba(249, 250, 251, 0.8);
+            --bg-card: #ffffff;
+            --bg-input: #ffffff;
+            --text-main: #0D0D0D;
+            --text-muted: #4B5563;
+            --gold: #B8860B;
+            --border: rgba(0, 0, 0, 0.08);
+            --ruby-glow: rgba(224, 17, 95, 0.15);
+            --gold-glow: rgba(184, 134, 11, 0.1);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- CORE STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: background-color 0.4s ease, color 0.3s ease, border-color 0.3s ease; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .nav-logo { font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
+        section { padding: 160px 0; display: none; }
+        section.active { display: block; }
+        .ruby-text { color: var(--ruby); }
+        .gold-text { color: var(--gold); }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 0;
+            z-index: 2000;
+            background: var(--bg-navbar);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { height: 60px; width: 60px; object-fit: contain; border-radius: 50%; cursor: pointer; transition: transform 0.2s ease; }
+        .nav-logo:hover { transform: scale(1.05); }
+        
+        .nav-menu { display: flex; gap: 25px; list-style: none; align-items: center; }
+        .nav-link { 
+            font-size: 11px; font-weight: 600; text-transform: uppercase; 
+            letter-spacing: 2px; color: var(--text-muted); cursor: pointer;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--ruby); }
+
+        /* THEME TOGGLE BUTTON */
+        .theme-toggle {
+            background: transparent; border: 1px solid var(--border);
+            color: var(--text-main); cursor: pointer; padding: 8px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .btn-expert {
+            background: var(--ruby); color: white; border: none;
+            padding: 12px 24px; font-weight: 700; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+        }
+
+        /* --- HERO --- */
+        .hero-sub { color: var(--gold); letter-spacing: 4px; font-weight: 700; font-size: 0.8rem; margin-bottom: 20px; display: block; }
+        .hero-title { font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px; }
+        .hero-desc { color: var(--text-muted); max-width: 700px; font-size: 1.1rem; margin-bottom: 40px; }
+
+        /* --- CARDS & GRIDS --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        
+        .cap-card, .svc-card, .program-card {
+            background: var(--bg-card); padding: 50px;
+            border: 1px solid var(--border); transition: 0.5s var(--ease);
+            position: relative; overflow: hidden; box-shadow: var(--shadow);
+        }
+        .cap-card:hover, .svc-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--ruby);
+            box-shadow: 0 20px 40px var(--ruby-glow);
+        }
+        .cap-card i, .program-card i { color: var(--ruby); margin-bottom: 25px; display: block; }
+        .svc-card p, .cap-card p, .program-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .learn-more { 
+            display: inline-flex; align-items: center; gap: 8px; 
+            color: var(--gold); font-size: 12px; font-weight: 700; margin-top: 20px; text-decoration: none;
+        }
+
+        /* --- COUNTERS --- */
+        .split-section { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
+        .check-item { display: flex; gap: 15px; margin-bottom: 25px; align-items: flex-start; }
+        .check-icon { color: var(--gold); margin-top: 5px; }
+
+        .counter-box { background: var(--bg-card); padding: 40px; text-align: center; border: 1px solid var(--border); box-shadow: var(--shadow); }
+        .counter-num { font-size: 3.5rem; font-weight: 800; color: var(--gold); display: block; }
+
+        /* --- FORMS --- */
+        input, textarea {
+            width: 100%; background: var(--bg-input); border: 1px solid var(--border);
+            padding: 15px; color: var(--text-main); margin-bottom: 20px; font-family: inherit;
+        }
+        input:focus { border-color: var(--gold); outline: none; }
+
+        /* --- FOOTER --- */
+        footer { padding: 100px 0 50px; background: var(--bg-body); border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-links h4 { color: var(--ruby); margin-bottom: 20px; font-size: 0.9rem; }
+        .footer-links li { margin-bottom: 12px; font-size: 0.85rem; opacity: 0.7; list-style: none; color: var(--text-muted); }
+
+        /* --- ANIMATIONS --- */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: 0.8s var(--ease) forwards; }
+        .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .split-section { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-menu { display: none; }
+        }
+        @media (max-width: 600px) {
+            .grid-3 { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body data-theme="dark">
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-logo" onclick="showPage('home')">
+                <img src="WhatsApp Image 2026-03-01 at 10.48.51 PM.png" alt="dataspy Logo" class="nav-logo">
+            </div>
+    
+            <ul class="nav-menu">
+                <li class="nav-link active" onclick="showPage('home')">Home</li>
+                <li class="nav-link" onclick="showPage('about')">Who We Are</li>
+                <li class="nav-link" onclick="showPage('services')">What We Do</li>
+                <li class="nav-link" onclick="showPage('training')">Training</li>
+                <li class="nav-link" onclick="showPage('contact')">Contact</li>
+                <li>
+                    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
+                        <i data-lucide="sun" id="theme-icon"></i>
+                    </button>
+                </li>
+            </ul>
+
+            <button class="btn-expert" onclick="showPage('contact')">Talk to an Expert</button>
+        </div>
+    </nav>
+
+    <section id="home" class="active">
+        <div class="container" style="text-align: center; padding-top: 100px;">
+            <span class="hero-sub fade-up">PREMIUM ENTERPRISE AI</span>
+            <h1 class="hero-title fade-up">We Build Intelligence That Powers <span class="ruby-text">World-Class</span> Businesses.</h1>
+            <p class="hero-desc fade-up" style="margin: 0 auto 40px;">From AI Strategy to Scalable Systems — We architect, build, and deploy AI solutions that transform outcomes.</p>
+            <div class="hero-btns fade-up">
+                <button class="btn-expert" style="padding: 20px 45px;" onclick="showPage('services')">Explore Services</button>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 160px;">
+            <h2 class="section-title fade-up">Intelligence Systems & Capabilities</h2>
+            <div class="grid-3" style="margin-top: 60px;">
+                <div class="cap-card fade-up">
+                    <i data-lucide="brain"></i>
+                    <h3>Artificial Intelligence Solutions</h3>
+                    <p>Custom neural architectures built for specific industry challenges and high-scale inference.</p>
+                </div>
+                <div class="cap-card fade-up">
+                    <i data-lucide="sparkles"></i>
+                    <h3>Generative AI Systems</h3>
+                    <p>Enterprise-grade RAG, fine-tuned LLMs, and private generative models for data security.</p>
+                </div>
+                <div class="cap-card fade-up">
+                    <i data-lucide="bot"></i>
+                    <h3>Agentic AI Engineering</h3>
+                    <p>Building autonomous agents that reason, plan, and execute multi-stage business tasks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: 160px;">
+            <div class="split-section">
+                <div class="fade-up">
+                    <h2 style="font-size: 3rem; margin-bottom: 40px;">Why DataSpy Technologies</h2>
+                    <div class="check-item">
+                        <i data-lucide="shield-check" class="check-icon"></i>
+                        <div><h4>Industry-Ready Execution</h4><p>We build systems that survive real-world traffic and data complexity.</p></div>
+                    </div>
+                    <div class="check-item">
+                        <i data-lucide="cpu" class="check-icon"></i>
+                        <div><h4>Production-Ready Systems</h4><p>No more prototypes. We focus on deployment-first engineering.</p></div>
+                    </div>
+                </div>
+                <div class="fade-up">
+                    <div class="counter-box" style="margin-bottom: 20px;">
+                        <span class="counter-num">150+</span>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="counter-box">
+                        <span class="counter-num" style="color: var(--ruby);">50k+</span>
+                        <p>Talent Ecosystem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <span class="hero-sub">WHO WE ARE</span>
+            <h1 class="hero-title">Building Intelligent Systems That Transform Businesses</h1>
+            <div class="split-section" style="margin-top: 80px;">
+                <div>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">DataSpy Technologies is an AI-driven technology company building intelligent, real-world solutions across Artificial Intelligence, Data Science, and Agentic AI.</p>
+                </div>
+                <div style="border-left: 2px solid var(--ruby); padding-left: 40px;">
+                    <h3 class="gold-text">Our Mission</h3>
+                    <p>To bridge the gap between AI research and practical business application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <span class="hero-sub">OUR CAPABILITIES</span>
+            <h1 class="hero-title">AI-Powered Solutions</h1>
+            <div class="grid-3" style="margin-top: 80px;">
+                <div class="svc-card">
+                    <h3>AI Systems Development</h3>
+                    <p>Custom model training, LLM fine-tuning, and neural network deployment.</p>
+                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
+                </div>
+                <div class="svc-card">
+                    <h3>Data Analytics Solutions</h3>
+                    <p>Predictive modeling and real-time visualization platforms for enterprise data.</p>
+                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
+                </div>
+                <div class="svc-card">
+                    <h3>AI Strategy</h3>
+                    <p>Executive roadmapping to move your organization into the AI-native era.</p>
+                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="training">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 80px;">
+                <h2 style="font-size: 3rem;">DATASPY TRAININGS</h2>
+                <h4 class="gold-text">Industry-Ready AI Programs</h4>
+            </div>
+            <div class="grid-3">
+                <div class="program-card">
+                    <i data-lucide="terminal"></i>
+                    <h3>Full Stack Gen AI</h3>
+                    <p>Learn to build end-to-end applications powered by LLMs.</p>
+                </div>
+                <div class="program-card">
+                    <i data-lucide="bot"></i>
+                    <h3>Agentic AI Engineering</h3>
+                    <p>Deep dive into building autonomous reasoning agents.</p>
+                </div>
+                <div class="program-card">
+                    <i data-lucide="pie-chart"></i>
+                    <h3>Data Analytics</h3>
+                    <p>Harness Gen AI to accelerate insight generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h1 class="hero-title">Let’s Build Together</h1>
+            <div class="split-section">
+                <form>
+                    <input type="text" placeholder="Full Name">
+                    <input type="email" placeholder="Email Address">
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    <button class="btn-expert" type="button" style="width: 100%;">Send Message</button>
+                </form>
+                <div class="counter-box" style="text-align: left;">
+                    <h4 class="ruby-text">Contact Info</h4>
+                    <p><strong>Email:</strong> contact@dataspy.tech</p>
+                    <p><strong>Locations:</strong> Pune & Nashik Hubs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">DATASPY TECH</div>
+                    <p style="font-size: 0.8rem; opacity: 0.6;">Architecting production-ready AI systems.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul><li>Home</li><li>About Us</li></ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Social</h4>
+                    <div style="display: flex; gap: 15px; margin-top: 10px; color: var(--text-main);">
+                        <i data-lucide="linkedin" size="18"></i>
+                        <i data-lucide="github" size="18"></i>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 0.7rem; opacity: 0.3; border-top: 1px solid var(--border); padding-top: 30px;">
+                © 2026 DataSpy Technologies.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.classList.remove('active');
+                if(l.innerText.toLowerCase().includes(pageId.replace('home', 'home'))) {
+                    l.classList.add('active');
+                }
+            });
+            
+            window.scrollTo(0,0);
+            animateElements();
+        }
+
+        // Theme Toggling
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            
+            // Update Icon
+            if(newTheme === 'light') {
+                icon.setAttribute('data-lucide', 'moon');
+            } else {
+                icon.setAttribute('data-lucide', 'sun');
+            }
+            lucide.createIcons();
+        }
+
+        // Scroll Animations
+        function animateElements() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('in-view');
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        }
+
+        window.onload = animateElements;
+    </script>
+</body>
+</html>
