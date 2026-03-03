@@ -98,6 +98,8 @@
         .hero-sub { color: var(--gold); letter-spacing: 4px; font-weight: 700; font-size: 0.8rem; margin-bottom: 20px; display: block; }
         .hero-title { font-size: clamp(2.2rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 30px; }
         .hero-desc { color: var(--text-muted); max-width: 700px; font-size: 1.1rem; margin-bottom: 40px; }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
+        .section-tag { color: var(--ruby); font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; display: block; margin-bottom: 15px; }
 
         /* --- CARDS & GRIDS --- */
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
@@ -120,6 +122,80 @@
             color: var(--gold); font-size: 12px; font-weight: 700; margin-top: 20px; text-decoration: none;
         }
 
+         /* Image Placeholder Style */
+        .img-placeholder { background: var(--border); border-radius: 8px; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px; overflow: hidden; }
+        .img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        
+
+        /* CENTERED IMAGE GRID */
+.about-image-grid-centered {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px;
+    gap: 25px;
+    margin-top: 80px;
+}
+
+.about-text {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+.mission-box {
+    border-left: 3px solid var(--ruby);
+    padding-left: 25px;
+    text-align: left;
+}
+
+.grid-img {
+    overflow: hidden;
+    border-radius: 16px;
+    position: relative;
+}
+
+.grid-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.grid-img:hover img {
+    transform: scale(1.07);
+}
+
+/* Special Layout */
+.grid-img.large {
+    grid-column: span 2;
+}
+
+.grid-img.wide {
+    grid-column: span 3;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .about-image-grid-centered {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-img.wide {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-image-grid-centered {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-img.large,
+    .grid-img.wide {
+        grid-column: span 1;
+    }
+}
+        .card { background: var(--bg-card); padding: 40px; border: 1px solid var(--border); border-radius: 4px; box-shadow: var(--shadow); position: relative; }
+        .card i { color: var(--ruby); margin-bottom: 20px; }
         /* --- COUNTERS --- */
         .split-section { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: center; }
         .check-item { display: flex; gap: 15px; margin-bottom: 25px; align-items: flex-start; }
@@ -194,6 +270,8 @@
         display: none;
     }
 }
+
+
 /* Why Us Counters */
 .why-us { padding: 160px 0; background: #050505; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
@@ -295,19 +373,54 @@
         </div>
     </section>
 
-    <section id="about">
+     <section id="about">
         <div class="container">
-            <span class="hero-sub">WHO WE ARE</span>
-            <h1 class="hero-title">Building Intelligent Systems That Transform Businesses</h1>
-            <div class="split-section" style="margin-top: 80px;">
-                <div>
-                    <p style="font-size: 1.2rem; margin-bottom: 30px;">DataSpy Technologies is an AI-driven technology company building intelligent, real-world solutions across Artificial Intelligence, Data Science, and Agentic AI.</p>
+            <span class="section-tag">Our Legacy</span>
+            <h1 class="hero-title">A Fusion of Talent <br>& Technology.</h1>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 60px;">
+                <p>Founded in the heart of the tech evolution, DataSpy Technologies emerged as a response to the gap between AI research and commercial reality. We believe that true intelligence should be accessible, ethical, and incredibly powerful.</p>
+                <p>Today, we operate across two major hubs, serving global clients while simultaneously nurturing the next 100,000 AI experts through our integrated training ecosystem.</p>
+            </div>
+
+            <div class="grid-3" style="margin: 100px 0;">
+                <div class="card">
+                    <h3>Innovation</h3>
+                    <p>70% of our revenue is reinvested into R&D for Agentic AI and swarm intelligence.</p>
                 </div>
-                <div style="border-left: 2px solid var(--ruby); padding-left: 40px;">
-                    <h3 class="gold-text">Our Mission</h3>
-                    <p>To bridge the gap between AI research and practical business application.</p>
+                <div class="card">
+                    <h3>Precision</h3>
+                    <p>We operate with a "Production-First" mindset. No prototypes that can't scale.</p>
+                </div>
+                <div class="card">
+                    <h3>Integrity</h3>
+                    <p>Security is baked into the neural level. Your data remains your competitive advantage.</p>
                 </div>
             </div>
+       <!-- CENTERED IMAGE GRID -->
+<div class="about-image-grid-centered">
+
+    <div class="grid-img large">
+<img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Data Analytics">    </div>
+
+ 
+    <div class="grid-img">
+        <img src="https://images.pexels.com/photos/1181356/pexels-photo-1181356.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="AI Lab">
+    </div>
+    
+       <div class="grid-img">
+<img src="https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Software Engineers">    </div>
+
+    <div class="grid-img large">
+<img src="https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Futuristic AI"></div>
+
+    <div class="grid-img wide">
+        <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Technology Systems">
+    </div>
+
+</div>
+
+           
         </div>
     </section>
 
