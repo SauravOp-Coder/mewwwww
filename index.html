@@ -304,7 +304,6 @@
         padding: 30px;
     }
 
-
     /* Reduce Section Spacing */
     #about {
         padding: 100px 0;
@@ -325,28 +324,37 @@
 /* MOBILE PORTRAIT IMAGE GRID */
 /* ================================= */
 
+/* ================================= */
+/* MOBILE PORTRAIT IMAGE GRID FIXED */
+/* ================================= */
+
 @media (max-width: 768px) {
 
     .about-image-grid-centered {
+        display: grid !important;
         grid-template-columns: repeat(2, 1fr);
         gap: 15px;
+        grid-auto-flow: dense; /* VERY IMPORTANT */
     }
 
     .grid-img {
-        height: 180px;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
     }
 
-    /* Make selected images tall portrait */
-    .grid-img.large {
-        grid-column: span 2;
-        height: 280px;
+    .grid-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
     }
 
+    /* Full width images */
+    .grid-img.large,
     .grid-img.wide {
         grid-column: span 2;
-        height: 200px;
     }
-
 }
     </STyle>
 </head>
