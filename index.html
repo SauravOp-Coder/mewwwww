@@ -280,6 +280,75 @@
 .counter-item .number { font-size: 4rem; font-weight: 800; }
 .counter-item p { text-transform: uppercase; letter-spacing: 2px; color: var(--silver); }
     </style>
+
+    <STyle>
+        /* ============================= */
+/* MOBILE OPTIMIZATION */
+/* ============================= */
+
+@media (max-width: 992px) {
+
+    /* Text Section → Stack */
+    #about > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+    }
+
+    /* Cards → 1 column */
+    .grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 25px;
+    }
+
+    .card {
+        padding: 30px;
+    }
+
+
+    /* Reduce Section Spacing */
+    #about {
+        padding: 100px 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .section-tag {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+}
+/* ================================= */
+/* MOBILE PORTRAIT IMAGE GRID */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .about-image-grid-centered {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .grid-img {
+        height: 180px;
+    }
+
+    /* Make selected images tall portrait */
+    .grid-img.large {
+        grid-column: span 2;
+        height: 280px;
+    }
+
+    .grid-img.wide {
+        grid-column: span 2;
+        height: 200px;
+    }
+
+}
+    </STyle>
 </head>
 <body data-theme="light">
 
