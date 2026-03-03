@@ -681,7 +681,7 @@
 
 // Simple Counter Animation
 const counters = document.querySelectorAll('.number');
-const speed = 50;
+const speed = 3000;
 
 const startCounters = () => {
     counters.forEach(counter => {
@@ -702,7 +702,7 @@ const startCounters = () => {
 };
 
 // Intersection Observer for Reveal Animations
-const observerOptions = { threshold: 0.4 };
+const observerOptions = { threshold: 0.6 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
