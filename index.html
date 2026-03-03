@@ -194,6 +194,13 @@
         display: none;
     }
 }
+/* Why Us Counters */
+.why-us { padding: 160px 0; background: #050505; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+
+.counter-item { margin-bottom: 40px; }
+.counter-item .number { font-size: 4rem; font-weight: 800; }
+.counter-item p { text-transform: uppercase; letter-spacing: 2px; color: var(--silver); }
     </style>
 </head>
 <body data-theme="light">
@@ -201,7 +208,7 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="nav-logo" onclick="showPage('home')">
-                <img src="IMG_20260303_112733.png" alt="dataspy Logo" class="nav-logo">
+                <img src="WhatsApp Image 2026-03-02 at 4.34.16 PM.png" alt="dataspy Logo" class="nav-logo">
             </div>
     
             <ul class="nav-menu">
@@ -268,15 +275,20 @@
                         <i data-lucide="cpu" class="check-icon"></i>
                         <div><h4>Production-Ready Systems</h4><p>No more prototypes. We focus on deployment-first engineering.</p></div>
                     </div>
-                </div>
-                <div class="fade-up">
-                    <div class="counter-box" style="margin-bottom: 20px;">
-                        <span class="counter-num">150+</span>
-                        <p>Projects Delivered</p>
+                    <div class="check-item">
+                        <i data-lucide="users" class="check-icon"></i>
+                        <div><h4>Talent + Technology Ecosystem</h4><p>Our dual focus on services and training creates a unique innovation loop.</p></div>
                     </div>
-                    <div class="counter-box">
-                        <span class="counter-num" style="color: var(--ruby);">50k+</span>
-                        <p>Talent Ecosystem</p>
+                </div>
+                 
+                <div class="fade-up counters">
+                    <div class="counter-box counter-item" style="margin-bottom: 20px;">
+                        <span class="number" data-target="150">0</span><span class="gold">+</span>
+                    <p>Projects Delivered</p>
+                    </div>
+                    <div class="counter-box counter-item">
+                          <span class="number" data-target="50">0</span><span class="ruby">k</span>
+                    <p>Talent Trained</p>
                     </div>
                 </div>
             </div>
@@ -447,6 +459,41 @@
     const menu = document.querySelector('.nav-menu');
     menu.classList.toggle('active');
 }
+
+// Simple Counter Animation
+const counters = document.querySelectorAll('.number');
+const speed = 50;
+
+const startCounters = () => {
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    });
+};
+
+// Intersection Observer for Reveal Animations
+const observerOptions = { threshold: 0.4 };
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            if (entry.target.classList.contains('counters')) startCounters();
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .counters').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
