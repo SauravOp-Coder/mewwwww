@@ -327,7 +327,26 @@
 /* ================================= */
 /* MOBILE PORTRAIT IMAGE GRID */
 /* ================================= */
+/* ================================= */
+/* CTA SECTION RESPONSIVE FIX */
+/* ================================= */
 
+@media (max-width: 768px) {
+
+    /* Target the inner grid */
+    .cta-container {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+        gap: 20px !important;
+    }
+
+    .cta-container button {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+}
 /* ================================= */
 /* MOBILE PORTRAIT IMAGE GRID FIXED */
 /* ================================= */
@@ -542,15 +561,21 @@
                 </div>
             </div>
 
-            <div style="margin-top: 100px; padding: 60px; background: var(--ruby); color: white; border-radius: 8px;">
-                <div style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;">
-                    <div>
-                        <h2>Ready for a Digital Overhaul?</h2>
-                        <p>Join the 150+ enterprises that have automated over 40% of their operations using DataSpy systems.</p>
-                    </div>
-                    <button class="btn" style="background: white; color: var(--ruby);">Request Case Studies</button>
-                </div>
-            </div>
+           <div style="margin-top: 100px; padding: 40px; background: var(--ruby); color: white; border-radius: 8px;">
+    
+    <div class="cta-container" style="display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px;">
+        
+        <div>
+            <h2>Ready for a Digital Overhaul?</h2>
+            <p>Join the 150+ enterprises that have automated over 40% of their operations using DataSpy systems.</p>
+        </div>
+
+        <button class="btn" style="background: white; color: var(--ruby);">
+            Request Case Studies
+        </button>
+
+    </div>
+</div>
         </div>
     </section>
 
