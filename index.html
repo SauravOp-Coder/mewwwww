@@ -27,6 +27,9 @@
             --ruby-glow: rgba(224, 17, 95, 0.4);
             --gold-glow: rgba(212, 167, 106, 0.3);
             --shadow: transparent;
+            --mode-card: #1A1C21;
+            --testimonials-section: #1A1C21;
+            --testimonial-card: #1A1C21;
         }
 
         [data-theme="light"] {
@@ -41,6 +44,9 @@
             --ruby-glow: rgba(224, 17, 95, 0.15);
             --gold-glow: rgba(184, 134, 11, 0.1);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --mode-card: #ffffff;
+            --testimonials-section:  #F9FAFB;;
+            --testimonial-card: #F9FAFB;
         }
 
         /* --- CORE STYLES --- */
@@ -380,6 +386,231 @@
     }
 }
     </STyle>
+
+    <style>
+        .training-section {
+    padding: 120px 0;
+}
+
+.training-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.training-header h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.training-sub {
+    max-width: 700px;
+    margin: 20px auto 0;
+    opacity: 0.8;
+}
+
+.placement-highlight {
+    margin-top: 100px;
+    padding: 40px;
+    background: var(--ruby);
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.why-training {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.why-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.training-mode {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.mode-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.mode-card {
+    padding: 30px;
+    border-radius: 12px;
+   
+}
+
+.training-cta {
+    margin-top: 120px;
+    text-align: center;
+}
+
+/* ================================= */
+/* TRAINING SECTION RESPONSIVE */
+/* ================================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mode-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .training-section {
+        padding: 80px 20px;
+    }
+
+    .training-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .training-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .training-sub {
+        font-size: 0.95rem;
+    }
+
+    /* Make all grids single column */
+    .grid-3,
+    .why-grid,
+    .mode-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-card {
+        padding: 25px;
+    }
+
+    .placement-highlight {
+        padding: 30px 20px;
+    }
+
+    .training-cta h2 {
+        font-size: 1.8rem;
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .training-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .training-sub {
+        font-size: 0.9rem;
+    }
+
+    .program-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .program-card p {
+        font-size: 0.9rem;
+    }
+
+    .training-cta button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+}
+    </style>
+
+   <style>
+    /* TESTIMONIALS */
+
+.testimonials-section {
+    margin-top: 160px;
+    padding: 30px 0;
+   
+}
+
+.testimonial-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.testimonial-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.testimonial-header p {
+    opacity: 0.7;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.testimonial-card {
+    
+    padding: 35px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+}
+
+.testimonial-text {
+    line-height: 1.7;
+    margin-bottom: 25px;
+    opacity: 0.85;
+}
+
+.testimonial-author span {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-header h2 {
+        font-size: 2rem;
+    }
+}
+   </style>
 </head>
 <body data-theme="light">
 
@@ -470,7 +701,55 @@
                     </div>
                 </div>
             </div>
+        
         </div>
+
+        <!-- CLIENT TESTIMONIALS -->
+<div class="testimonials-section">
+    <div class="container">
+
+        <div class="testimonial-header">
+            <h2>What Our Clients Say</h2>
+            <p>Trusted by forward-thinking enterprises transforming with AI.</p>
+        </div>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    “DataSpy delivered a production-ready AI system that automated over 40% of our workflows. Their engineering quality is exceptional.”
+                </p>
+                <div class="testimonial-author">
+                    <h4>Rahul Mehta</h4>
+                    <span>CTO, FinTech Enterprise</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    “From AI strategy to deployment, their team demonstrated deep technical expertise in LLM integration and scalable systems.”
+                </p>
+                <div class="testimonial-author">
+                    <h4>Priya Sharma</h4>
+                    <span>Head of Innovation, Retail Group</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    “Their consulting and implementation support helped us move from experimentation to production in record time.”
+                </p>
+                <div class="testimonial-author">
+                    <h4>Arjun Desai</h4>
+                    <span>Director, Technology Solutions</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+        
     </section>
 
      <section id="about">
@@ -530,35 +809,52 @@
             <h1 class="hero-title">AI-Powered Solutions</h1>
             <div class="grid-3" style="margin-top: 80px;">
                 <div class="svc-card">
-                    <h3>AI Systems Development</h3>
-                    <p>Custom model training, LLM fine-tuning, and neural network deployment.</p>
-                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
-                </div>
-                <div class="svc-card">
-                    <h3>Data Analytics Solutions</h3>
-                    <p>Predictive modeling and real-time visualization platforms for enterprise data.</p>
-                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
-                </div>
-                <div class="svc-card">
-                    <h3>AI Strategy</h3>
-                    <p>Executive roadmapping to move your organization into the AI-native era.</p>
-                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
-                </div>
-                 <div class="svc-card">
-                    <h3>AI Systems Development</h3>
-                    <p>Custom model training, LLM fine-tuning, and neural network deployment.</p>
-                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
-                </div>
-                <div class="svc-card">
-                    <h3>Data Analytics Solutions</h3>
-                    <p>Predictive modeling and real-time visualization platforms for enterprise data.</p>
-                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
-                </div>
-                <div class="svc-card">
-                    <h3>AI Strategy</h3>
-                    <p>Executive roadmapping to move your organization into the AI-native era.</p>
-                    <a href="#" class="learn-more">Learn More <i data-lucide="arrow-right" size="14"></i></a>
-                </div>
+    <h3>AI & Intelligent Systems Development</h3>
+    <p>End-to-end AI system design including custom model training, LLM fine-tuning, neural network deployment, and enterprise AI infrastructure setup.</p>
+    <a href="#" class="learn-more">
+        Learn More <i data-lucide="arrow-right" size="14"></i>
+    </a>
+</div>
+
+<div class="svc-card">
+    <h3>AI-Powered Applications & Platforms</h3>
+    <p>Development of intelligent SaaS platforms, AI-integrated dashboards, automation systems, and scalable applications powered by machine learning.</p>
+    <a href="#" class="learn-more">
+        Learn More <i data-lucide="arrow-right" size="14"></i>
+    </a>
+</div>
+
+<div class="svc-card">
+    <h3>AI Strategy & Transformation Support</h3>
+    <p>Executive-level AI roadmapping, digital transformation planning, workflow automation strategy, and enterprise AI adoption frameworks.</p>
+    <a href="#" class="learn-more">
+        Learn More <i data-lucide="arrow-right" size="14"></i>
+    </a>
+</div>
+
+<div class="svc-card">
+    <h3>Web & Application Development</h3>
+    <p>High-performance websites, enterprise web applications, mobile apps, and AI-integrated digital platforms built for scalability and security.</p>
+    <a href="#" class="learn-more">
+        Learn More <i data-lucide="arrow-right" size="14"></i>
+    </a>
+</div>
+
+<div class="svc-card">
+    <h3>Data Science & Analytics Solutions</h3>
+    <p>Advanced analytics, predictive modeling, real-time dashboards, business intelligence systems, and data-driven decision platforms.</p>
+    <a href="#" class="learn-more">
+        Learn More <i data-lucide="arrow-right" size="14"></i>
+    </a>
+</div>
+
+<div class="svc-card">
+    <h3>AI Consulting & Implementation Support</h3>
+    <p>Strategic AI consulting, system integration, implementation support, performance optimization, and long-term AI ecosystem management.</p>
+    <a href="#" class="learn-more">
+        Learn More <i data-lucide="arrow-right" size="14"></i>
+    </a>
+</div>
             </div>
 
            <div style="margin-top: 100px; padding: 40px; background: var(--ruby); color: white; border-radius: 8px;">
@@ -579,31 +875,112 @@
         </div>
     </section>
 
-    <section id="training">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 80px;">
-                <h2 style="font-size: 3rem;">DATASPY TRAININGS</h2>
-                <h4 class="gold-text">Industry-Ready AI Programs</h4>
+  <section id="training" class="training-section">
+    <div class="container">
+
+        <!-- SECTION HEADER -->
+        <div class="training-header">
+            <h2>DATASPY TRAININGS</h2>
+            <h4 class="gold-text">Industry-Ready AI Programs</h4>
+            <p class="training-sub">
+                Offline & Hybrid AI Programs designed to make you job-ready 
+                with Live Projects, Internship Certification, and Placement Support.
+            </p>
+        </div>
+
+        <!-- PROGRAM GRID -->
+        <div class="grid-3">
+
+            <div class="program-card">
+                <i data-lucide="flask-conical"></i>
+                <h3>Data Science with Gen AI</h3>
+                <p>Master machine learning, deep learning, and Generative AI to build real-world predictive systems.</p>
             </div>
-            <div class="grid-3">
-                <div class="program-card">
-                    <i data-lucide="terminal"></i>
-                    <h3>Full Stack Gen AI</h3>
-                    <p>Learn to build end-to-end applications powered by LLMs.</p>
+
+            <div class="program-card">
+                <i data-lucide="terminal"></i>
+                <h3>Full Stack Generative AI Development</h3>
+                <p>Build end-to-end AI applications using LLMs, APIs, vector databases, and modern frameworks.</p>
+            </div>
+
+            <div class="program-card">
+                <i data-lucide="monitor-smartphone"></i>
+                <h3>AI-Powered Web & App Development</h3>
+                <p>Develop intelligent web and mobile applications integrated with AI automation.</p>
+            </div>
+
+            <div class="program-card">
+                <i data-lucide="bot"></i>
+                <h3>Agentic AI Engineering</h3>
+                <p>Create autonomous AI agents capable of reasoning, planning, and execution.</p>
+            </div>
+
+            <div class="program-card">
+                <i data-lucide="pie-chart"></i>
+                <h3>Data Analytics with Gen AI</h3>
+                <p>Accelerate insight generation using AI-powered dashboards and automation tools.</p>
+            </div>
+
+            <div class="program-card">
+                <i data-lucide="bar-chart-3"></i>
+                <h3>Business Analytics with AI</h3>
+                <p>Apply AI-driven decision models to optimize enterprise performance and growth.</p>
+            </div>
+
+        </div>
+
+        <!-- INTERNSHIP + PLACEMENT SECTION -->
+        <div class="placement-highlight">
+            <h3>Guaranteed Internship + Dedicated Placement Support</h3>
+            <p>
+                Every student works on real-world projects, receives internship certification, 
+                and gets structured placement guidance including resume building and interview training.
+            </p>
+        </div>
+
+        <!-- WHY CHOOSE US -->
+        <div class="why-training">
+            <h3>Why Choose DataSpy Trainings?</h3>
+            <div class="why-grid">
+                <div>✔ Offline Classroom Training</div>
+                <div>✔ Live Industry Projects</div>
+                <div>✔ Expert AI Mentorship</div>
+                <div>✔ Internship Certification</div>
+                <div>✔ Placement Assistance</div>
+                <div>✔ Resume & Interview Preparation</div>
+            </div>
+        </div>
+
+        <!-- TRAINING MODE -->
+        <div class="training-mode">
+            <h3>Flexible Learning Options</h3>
+            <div class="mode-grid">
+                <div class="mode-card">
+                    <h4>🏢 Offline Classroom</h4>
+                    <p>Hands-on practical training at our physical training center.</p>
                 </div>
-                <div class="program-card">
-                    <i data-lucide="bot"></i>
-                    <h3>Agentic AI Engineering</h3>
-                    <p>Deep dive into building autonomous reasoning agents.</p>
+
+                <div class="mode-card">
+                    <h4>💻 Hybrid Learning</h4>
+                    <p>Offline sessions + recorded access for revision and flexibility.</p>
                 </div>
-                <div class="program-card">
-                    <i data-lucide="pie-chart"></i>
-                    <h3>Data Analytics</h3>
-                    <p>Harness Gen AI to accelerate insight generation.</p>
+
+                <div class="mode-card">
+                    <h4>📅 Flexible Batches</h4>
+                    <p>Weekend and weekday batches available.</p>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- CTA -->
+        <div class="training-cta">
+            <h2>Ready to Build Your AI Career?</h2>
+            <p>Limited Seats Per Batch. Enroll Now.</p>
+            <button class="btn">Apply Now</button>
+        </div>
+
+    </div>
+</section>
 
     <section id="contact">
         <div class="container">
