@@ -12,7 +12,7 @@
         /* --- DYNAMIC THEME VARIABLES --- */
         :root {
             /* Constant Colors */
-            --ruby: #c81515;
+            --ruby: #ef3d3d;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
             
             /* Theme Dependent (Default Dark) */
@@ -71,15 +71,14 @@
             position: fixed;
             top: 0; width: 100%;
             padding: 20px 0;
-            z-index: 2000;
+            z-index: 999;
             background: var(--bg-navbar);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { height: 60px; width: 60px; object-fit: contain; border-radius: 50%; cursor: pointer; transition: transform 0.2s ease; }
         .nav-logo:hover { transform: scale(1.05); }
-        
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-height: 53px;}
+        .nav-logo { height: 85px; width: 85px; object-fit: contain; border-radius: 50%; cursor: pointer; transition: transform 0.2s ease; }
         .nav-menu { display: flex; gap: 25px; list-style: none; align-items: center; }
         .nav-link { 
             font-size: 11px; font-weight: 600; text-transform: uppercase; 
@@ -612,11 +611,42 @@
 }
    </style>
 
-  <style>
-    /* ============================= */
-/* PREMIUM DROPDOWN SYSTEM */
-/* ============================= */
+   <style>
+    @media (max-width: 992px) {
 
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: static;   /* IMPORTANT */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        padding: 5px 0;
+        display: none;
+    }
+
+    .dropdown-menu li {
+        padding: 10px 0;
+        font-size: 12px;
+    }
+
+    .dropdown-toggle {
+        justify-content: center;
+        width: 100%;
+    }
+
+}
+
+/* DROPDOWN BASE */
 .dropdown {
     position: relative;
 }
@@ -624,112 +654,47 @@
 .dropdown-toggle {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     cursor: pointer;
-    transition: 0.3s ease;
 }
 
-.dropdown-toggle i {
-    transition: transform 0.3s ease;
-}
-
-/* Rotate icon when open */
-.dropdown.active .dropdown-toggle i {
-    transform: rotate(180deg);
-}
-
-/* Dropdown Menu - Desktop */
 .dropdown-menu {
     position: absolute;
-    top: 130%;
+    top: 120%;
     left: 0;
-    min-width: 220px;
-    padding: 15px 0;
-    list-style: none;
-    
-    background: rgba(20, 20, 20, 0.85);
-    backdrop-filter: blur(20px);
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
-
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
-
-    opacity: 0;
-    transform: translateY(15px);
-    pointer-events: none;
-    transition: all 0.35s var(--ease);
+    padding: 10px 0;
+    list-style: none;
+    display: none;
+    min-width: 200px;
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    z-index: 9999;
 }
 
 .dropdown-menu li {
-    padding: 14px 25px;
+    padding: 12px 20px;
     font-size: 11px;
-    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--text-muted);
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: 0.25s ease;
+    color: var(--text-muted);
 }
 
 .dropdown-menu li:hover {
     background: var(--ruby);
     color: white;
-    padding-left: 30px;
 }
 
 /* Desktop Hover */
 @media (min-width: 993px) {
     .dropdown:hover .dropdown-menu {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
+        display: block;
+        z-index: 2000;
     }
 }
-
-/* ============================= */
-/* MOBILE DROPDOWN MAGIC */
-/* ============================= */
-
-@media (max-width: 992px) {
-
-    .dropdown-menu {
-        position: static;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        backdrop-filter: none;
-        padding: 0;
-        margin-top: 10px;
-
-        max-height: 0;
-        overflow: hidden;
-        opacity: 1;
-        transform: none;
-        transition: max-height 0.4s ease;
-    }
-
-    .dropdown.active .dropdown-menu {
-        max-height: 300px;
-    }
-
-    .dropdown-menu li {
-        padding: 12px 0;
-        text-align: center;
-        font-size: 12px;
-        border-bottom: 1px solid var(--border);
-    }
-
-    .dropdown-menu li:hover {
-        background: none;
-        color: var(--ruby);
-        padding-left: 0;
-    }
-
-    .dropdown-toggle {
-        justify-content: center;
-        font-size: 12px;
-    }
-}
-  </style>
+   </style>
 </head>
 <body data-theme="light">
 
@@ -741,15 +706,14 @@
     
             <ul class="nav-menu">
                 <li class="nav-link active" onclick="showPage('home')">Overview</li>
-                <li class="dropdown">
+               <li class="dropdown">
     <div class="nav-link dropdown-toggle" onclick="toggleDropdown(this)">
         Company
         <i data-lucide="chevron-down" size="14"></i>
     </div>
     <ul class="dropdown-menu">
-        <li data-page="about">About Us</li>
-<li data-page="careers">Careers</li>
-
+        <li onclick="showPage('about')">About Us</li>
+        <li onclick="showPage('careers')">Careers</li>
     </ul>
 </li>
 
@@ -759,8 +723,8 @@
         <i data-lucide="chevron-down" size="14"></i>
     </div>
     <ul class="dropdown-menu">
-       <li data-page="products">Products</li>
-<li data-page="services">Services</li>
+        <li onclick="showPage('products')">Products</li>
+        <li onclick="showPage('services')">Services</li>
     </ul>
 </li>
                 <li class="nav-link" onclick="showPage('training')">AI Training</li>
@@ -942,6 +906,63 @@
         </div>
     </section>
 
+    <section id="products">
+    <div class="container">
+        <span class="section-tag">Our Products</span>
+        <h1 class="hero-title">AI Products Built for Scale</h1>
+
+        <div class="grid-3" style="margin-top: 80px;">
+            <div class="card">
+                <h3>Enterprise AI Dashboard</h3>
+                <p>Real-time AI analytics and automation control panel for enterprises.</p>
+            </div>
+
+            <div class="card">
+                <h3>Private LLM Platform</h3>
+                <p>Secure, on-premise generative AI system for sensitive business data.</p>
+            </div>
+
+            <div class="card">
+                <h3>Agentic Automation Suite</h3>
+                <p>Autonomous AI agents for workflow execution and optimization.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="careers">
+    <div class="container">
+        <span class="section-tag">Careers</span>
+        <h1 class="hero-title">Build the Future of AI With Us</h1>
+
+        <div style="margin-top: 60px; max-width: 800px;">
+            <p>
+                We’re looking for AI engineers, data scientists, and product thinkers
+                who want to build production-ready intelligent systems.
+            </p>
+        </div>
+
+        <div class="grid-3" style="margin-top: 80px;">
+            <div class="card">
+                <h3>AI Engineer</h3>
+                <p>Experience with LLMs, ML pipelines, and deployment architecture.</p>
+                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
+            </div>
+
+            <div class="card">
+                <h3>Full Stack Developer</h3>
+                <p>Frontend + backend development with AI integration experience.</p>
+                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
+            </div>
+
+            <div class="card">
+                <h3>Data Scientist</h3>
+                <p>Advanced analytics, modeling, and business AI solutions.</p>
+                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
+            </div>
+        </div>
+    </div>
+</section>
     <section id="services">
         <div class="container">
             <span class="hero-sub">OUR CAPABILITIES</span>
@@ -1013,30 +1034,6 @@
 </div>
         </div>
     </section>
-
-    <section id="products">
-    <div class="container">
-        <span class="section-tag">Our Products</span>
-        <h1 class="hero-title">AI Products Built for Scale</h1>
-
-        <div class="grid-3" style="margin-top: 80px;">
-            <div class="card">
-                <h3>Enterprise AI Dashboard</h3>
-                <p>Real-time AI analytics and automation control panel for enterprises.</p>
-            </div>
-
-            <div class="card">
-                <h3>Private LLM Platform</h3>
-                <p>Secure, on-premise generative AI system for sensitive business data.</p>
-            </div>
-
-            <div class="card">
-                <h3>Agentic Automation Suite</h3>
-                <p>Autonomous AI agents for workflow execution and optimization.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
   <section id="training" class="training-section">
     <div class="container">
@@ -1145,40 +1142,6 @@
     </div>
 </section>
 
-<section id="careers">
-    <div class="container">
-        <span class="section-tag">Careers</span>
-        <h1 class="hero-title">Build the Future of AI With Us</h1>
-
-        <div style="margin-top: 60px; max-width: 800px;">
-            <p>
-                We’re looking for AI engineers, data scientists, and product thinkers
-                who want to build production-ready intelligent systems.
-            </p>
-        </div>
-
-        <div class="grid-3" style="margin-top: 80px;">
-            <div class="card">
-                <h3>AI Engineer</h3>
-                <p>Experience with LLMs, ML pipelines, and deployment architecture.</p>
-                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
-            </div>
-
-            <div class="card">
-                <h3>Full Stack Developer</h3>
-                <p>Frontend + backend development with AI integration experience.</p>
-                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
-            </div>
-
-            <div class="card">
-                <h3>Data Scientist</h3>
-                <p>Advanced analytics, modeling, and business AI solutions.</p>
-                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
-            </div>
-        </div>
-    </div>
-</section>
-
     <section id="contact">
         <div class="container">
             <h1 class="hero-title">Let’s Build Together</h1>
@@ -1226,7 +1189,21 @@
     <script>
         lucide.createIcons();
 
-       
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.classList.remove('active');
+                if(l.innerText.toLowerCase().includes(pageId.replace('home', 'home'))) {
+                    l.classList.add('active');
+                }
+            });
+            
+            window.scrollTo(0,0);
+            animateElements();
+        }
 
         // Theme Toggling
         function toggleTheme() {
@@ -1298,77 +1275,21 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.querySelectorAll('.reveal, .counters').forEach(el => observer.observe(el));
-
-function toggleDropdown(element) {
-    if (window.innerWidth <= 992) {
-
-        const parent = element.parentElement;
-
-        // Close other dropdowns
-        document.querySelectorAll('.dropdown').forEach(drop => {
-            if (drop !== parent) {
-                drop.classList.remove('active');
-            }
-        });
-
-        parent.classList.toggle('active');
-    }
-}
-
-function showPage(pageId) {
-
-    document.querySelectorAll('section').forEach(s => 
-        s.classList.remove('active')
-    );
-
-    document.getElementById(pageId).classList.add('active');
-
-    document.querySelectorAll('.nav-link').forEach(l => {
-        l.classList.remove('active');
-        if (l.innerText.toLowerCase().includes(pageId)) {
-            l.classList.add('active');
-        }
-    });
-
-    // 🔥 CLOSE MOBILE MENU
-    const menu = document.querySelector('.nav-menu');
-    menu.classList.remove('active');
-
-    // 🔥 CLOSE ALL DROPDOWNS
-    document.querySelectorAll('.dropdown').forEach(drop => {
-        drop.classList.remove('active');
-    });
-
-    window.scrollTo(0, 0);
-    animateElements();
-}
-
-document.querySelectorAll('[data-page]').forEach(item => {
-    item.addEventListener('click', function() {
-        showPage(this.dataset.page);
-    });
-});
-
-
-// Handle ALL page clicks (desktop + mobile)
-document.querySelectorAll('[data-page]').forEach(item => {
-    item.addEventListener('click', function (e) {
-
-        const pageId = this.dataset.page;
-
-        showPage(pageId);
-
-        // 🔥 Close mobile menu
-        document.querySelector('.nav-menu').classList.remove('active');
-
-        // 🔥 Close dropdowns
-        document.querySelectorAll('.dropdown').forEach(drop => {
-            drop.classList.remove('active');
-        });
-    });
-});
-
     </script>
 
+    <script>
+        function toggleDropdown(element) {
+
+    if (window.innerWidth <= 992) {
+
+        const dropdown = element.parentElement;
+        const menu = dropdown.querySelector(".dropdown-menu");
+
+        menu.style.display =
+            menu.style.display === "block" ? "none" : "block";
+
+    }
+}
+    </script>
 </body>
 </html>
