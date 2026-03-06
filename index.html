@@ -78,7 +78,7 @@
         }
         .nav-logo:hover { transform: scale(1.05); }
         .nav-container { display: flex; justify-content: space-between; align-items: center; max-height: 53px;}
-        .nav-logo { height: 85px; width: 85px; object-fit: contain; border-radius: 50%; cursor: pointer; transition: transform 0.2s ease; }
+        .nav-logo { height: 90px; width: 90px; object-fit: contain; border-radius: 50%; cursor: pointer; transition: transform 0.2s ease; }
         .nav-menu { display: flex; gap: 25px; list-style: none; align-items: center; }
         .nav-link { 
             font-size: 11px; font-weight: 600; text-transform: uppercase; 
@@ -701,6 +701,68 @@
     }
 }
    </style>
+
+   <style>
+    #product_decision_ai{
+padding:120px 0;
+}
+
+.decision-product-grid{
+display:grid;
+grid-template-columns:1.5fr 1fr;
+gap:80px;
+margin-top:80px;
+align-items:center;
+}
+
+.decision-list{
+margin-top:15px;
+padding-left:20px;
+line-height:1.9;
+}
+
+.decision-mini-list{
+padding-left:20px;
+line-height:1.8;
+}
+
+.decision-card{
+padding:40px;
+text-align:left;
+}
+
+.decision-subtitle{
+opacity:0.7;
+margin-top:5px;
+}
+
+.decision-tagline{
+font-size:18px;
+font-weight:600;
+margin-top:15px;
+color:#D4A76A;
+}
+
+.decision-footer{
+margin-top:80px;
+text-align:center;
+font-size:18px;
+opacity:0.8;
+}
+
+@media (max-width:992px){
+
+.decision-product-grid{
+grid-template-columns:1fr;
+gap:50px;
+}
+
+.decision-card{
+text-align:center;
+}
+
+}
+   </style>
 </head>
 <body data-theme="light">
 
@@ -729,7 +791,7 @@
         <i data-lucide="chevron-down" size="14"></i>
     </div>
     <ul class="dropdown-menu">
-        <li onclick="showPage('products')">Products</li>
+        <li onclick="showPage('product_decision_ai')">Products</li>
         <li onclick="showPage('services')">Services</li>
     </ul>
 </li>
@@ -912,28 +974,119 @@
         </div>
     </section>
 
-    <section id="products">
-    <div class="container">
-        <span class="section-tag">Our Products</span>
-        <h1 class="hero-title">AI Products Built for Scale</h1>
+  <section id="product_decision_ai">
+<div class="container">
 
-        <div class="grid-3" style="margin-top: 80px;">
-            <div class="card">
-                <h3>Enterprise AI Dashboard</h3>
-                <p>Real-time AI analytics and automation control panel for enterprises.</p>
-            </div>
+<span class="section-tag">Our Core Product</span>
 
-            <div class="card">
-                <h3>Private LLM Platform</h3>
-                <p>Secure, on-premise generative AI system for sensitive business data.</p>
-            </div>
+<h1 class="hero-title">
+DecisionAI – AI Decision Intelligence Platform
+</h1>
 
-            <div class="card">
-                <h3>Agentic Automation Suite</h3>
-                <p>Autonomous AI agents for workflow execution and optimization.</p>
-            </div>
-        </div>
-    </div>
+<p class="hero-desc" style="max-width:850px;margin-top:25px;">
+DecisionAI is an enterprise AI platform designed to transform business data
+into intelligent, real-time decisions. Instead of static dashboards, the
+platform analyzes data, predicts outcomes, and recommends the best actions
+using advanced artificial intelligence systems.
+</p>
+
+
+<div class="decision-product-grid">
+
+<!-- LEFT SIDE CONTENT -->
+
+<div class="decision-content">
+
+<h2>From Data to Decisions</h2>
+
+<p>
+Modern businesses generate massive amounts of data, but most organizations
+struggle to convert insights into actual decisions. DecisionOS bridges this
+gap by combining AI, advanced analytics, and intelligent automation into a
+single unified platform.
+</p>
+
+<p>
+The system continuously analyzes business signals, identifies patterns, and
+generates actionable recommendations that help leaders move faster and make
+better strategic decisions.
+</p>
+
+
+<h3 style="margin-top:40px;">Core Platform Capabilities</h3>
+
+<ul class="decision-list">
+
+<li>AI-Powered Business Intelligence</li>
+
+<li>Predictive Analytics & Decision Modeling</li>
+
+<li>Real-Time Data Monitoring & Insights</li>
+
+<li>Agentic Workflow Automation</li>
+
+<li>Enterprise AI Integration Systems</li>
+
+<li>Strategic Decision Recommendation Engine</li>
+
+</ul>
+
+</div>
+
+
+<!-- RIGHT SIDE PRODUCT HIGHLIGHT -->
+
+<div class="decision-highlight">
+
+<div class="card decision-card">
+
+<h3>DecisionAI</h3>
+
+<p class="decision-subtitle">
+AI Business Insight & Decision Intelligence Platform
+</p>
+
+<p class="decision-tagline">
+"Not dashboards. Decisions."
+</p>
+
+<hr style="margin:25px 0;opacity:0.2;">
+
+<p>
+Designed for organizations that want to move beyond traditional reporting
+and build intelligent systems capable of recommending the next best action.
+</p>
+
+<ul class="decision-mini-list">
+
+<li>Enterprise AI Architecture</li>
+
+<li>Scalable Decision Engine</li>
+
+<li>Secure Data Intelligence</li>
+
+<li>AI Automation Ready</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BOTTOM POWER LINE -->
+
+<div class="decision-footer">
+
+<p>
+We build AI systems that analyze, predict, and decide.
+</p>
+
+</div>
+
+</div>
 </section>
 
 <section id="careers">
@@ -951,24 +1104,421 @@
         <div class="grid-3" style="margin-top: 80px;">
             <div class="card">
                 <h3>AI Engineer</h3>
-                <p>Experience with LLMs, ML pipelines, and deployment architecture.</p>
-                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
+                <p>Strong knowledge of Prompt Engineering and Generative AI with experience in AI tools, workflows, and video generation. Excellent English communication and AI/ML internship experience required. </p>       
+                <button class="btn-expert" style="margin-top:20px;" onclick="showPage('careers_details')">Details</button>
             </div>
 
             <div class="card">
                 <h3>Full Stack Developer</h3>
-                <p>Frontend + backend development with AI integration experience.</p>
-                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
+                <p>Strong knowledge of frontend and backend development with experience in modern frameworks, databases, and API integration. Good problem-solving skills and development project or internship experience required.</p>
+                  <button class="btn-expert" style="margin-top:20px;" onclick="showPage('career_fullstack')">Details</button>
             </div>
 
             <div class="card">
                 <h3>Data Scientist</h3>
-                <p>Advanced analytics, modeling, and business AI solutions.</p>
-                <button class="btn-expert" style="margin-top:20px;">Apply Now</button>
+                <p>Strong foundation in data analysis, Python, and machine learning with experience in data visualization and real-world datasets. Good analytical thinking and internship or project experience required.</p>
+                                <button class="btn-expert" style="margin-top:20px;" onclick="showPage('career_datascientist')">Details</button>
+
             </div>
         </div>
     </div>
 </section>
+
+<section id="careers_details">
+<div class="container">
+
+<span class="section-tag">Career Opportunity</span>
+
+<h1 class="hero-title">AI Engineer – Generative AI & Prompt Engineering</h1>
+
+<p style="max-width:800px;margin-top:30px;">
+We are looking for a passionate AI Engineer who can build modern generative AI
+solutions using prompt engineering, AI automation tools, and generative media
+platforms. This role focuses on designing intelligent workflows and building
+AI-powered systems for real-world applications.
+</p>
+
+
+<div class="career-details-grid" style="margin-top:80px;display:grid;grid-template-columns:2fr 1fr;gap:60px;">
+
+
+<!-- LEFT SIDE -->
+<div>
+
+<h2>About the Role</h2>
+
+<p>
+You will work with advanced AI platforms and generative AI models to design
+solutions that automate workflows, generate digital content, and improve
+business intelligence systems.
+</p>
+
+
+<h2 style="margin-top:40px;">Key Responsibilities</h2>
+
+<ul class="career-list">
+<li>Design advanced prompts for Large Language Models.</li>
+<li>Build AI solutions using modern generative AI tools.</li>
+<li>Create AI-powered automation workflows.</li>
+<li>Integrate AI platforms with business applications.</li>
+<li>Develop AI pipelines for text, image, and video generation.</li>
+<li>Research emerging AI technologies and tools.</li>
+</ul>
+
+
+<h2 style="margin-top:40px;">Required Skills</h2>
+
+<ul class="career-list">
+
+<li>Strong knowledge of Prompt Engineering</li>
+
+<li>Experience using AI tools and platforms</li>
+
+<li>Understanding of Generative AI concepts</li>
+
+<li>Ability to design AI workflows & automations</li>
+
+<li>Ability to generate AI videos using AI tools</li>
+
+<li>Excellent English communication skills (Mandatory)</li>
+
+<li>Internship experience in AI / ML / GenAI</li>
+
+</ul>
+
+
+<h2 style="margin-top:40px;">Preferred Skills</h2>
+
+<ul class="career-list">
+
+<li>Experience working with AI APIs</li>
+
+<li>Basic programming knowledge (Python or JavaScript)</li>
+
+<li>Understanding of AI agents and automation systems</li>
+
+<li>Experience building AI powered applications</li>
+
+</ul>
+
+
+<h2 style="margin-top:40px;">What You Will Gain</h2>
+
+<ul class="career-list">
+
+<li>Hands-on experience with modern Generative AI technologies</li>
+
+<li>Opportunity to work on real-world AI products</li>
+
+<li>Exposure to enterprise AI development workflows</li>
+
+<li>Career growth in the AI engineering field</li>
+
+</ul>
+
+</div>
+
+
+<!-- RIGHT SIDEBAR -->
+
+<div>
+
+<div class="card">
+
+<h3>Job Details</h3>
+
+<p><strong>Role</strong><br>AI Engineer</p>
+
+<p><strong>Department</strong><br>Artificial Intelligence</p>
+
+<p><strong>Location</strong><br>Remote / Hybrid</p>
+
+<p><strong>Type</strong><br>Internship / Full-Time</p>
+
+</div>
+
+
+<div class="card" style="margin-top:30px;">
+
+<h3>Hiring Process</h3>
+
+<ul class="career-list">
+
+<li>Application Review</li>
+
+<li>AI Skills Assessment</li>
+
+<li>Technical Interview</li>
+
+<li>Final Discussion</li>
+
+</ul>
+
+</div>
+
+
+<div class="card" style="margin-top:30px;text-align:center;">
+
+<h3>Apply for this Role</h3>
+
+<p>Send your resume to</p>
+
+<p style="font-weight:600;margin:10px 0;">careers@yourcompany.com</p>
+
+<button class="btn-expert">Submit Application</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="career_fullstack">
+<div class="container">
+
+<span class="section-tag">Career Opportunity</span>
+
+<h1 class="hero-title">Full Stack Developer – Web Platforms & AI Integration</h1>
+
+<p style="max-width:800px;margin-top:30px;">
+We are looking for a talented Full Stack Developer who can build modern web
+applications and scalable platforms. This role focuses on developing
+high-performance frontend interfaces, robust backend systems, and integrating
+AI-powered features into web products.
+</p>
+
+<div class="career-details-grid" style="margin-top:80px;display:grid;grid-template-columns:2fr 1fr;gap:60px;">
+
+<!-- LEFT SIDE -->
+
+<div>
+
+<h2>About the Role</h2>
+
+<p>
+You will work on building scalable digital products from frontend to backend.
+This includes designing modern UI interfaces, developing secure APIs,
+integrating databases, and implementing AI-driven functionality inside
+web applications.
+</p>
+
+<h2 style="margin-top:40px;">Key Responsibilities</h2>
+
+<ul class="career-list">
+<li>Develop responsive and modern frontend interfaces.</li>
+<li>Build scalable backend APIs and application logic.</li>
+<li>Integrate third-party APIs and AI services.</li>
+<li>Design and manage databases for web applications.</li>
+<li>Optimize performance and application security.</li>
+<li>Collaborate with designers and product teams.</li>
+</ul>
+
+<h2 style="margin-top:40px;">Required Skills</h2>
+
+<ul class="career-list">
+<li>Strong knowledge of HTML, CSS, and JavaScript</li>
+<li>Experience with modern frontend frameworks (React / Next.js / Vue)</li>
+<li>Backend development with Node.js or Python</li>
+<li>Experience working with REST APIs</li>
+<li>Knowledge of databases (MongoDB, MySQL, PostgreSQL)</li>
+<li>Understanding of Git version control</li>
+<li>Good problem-solving and development practices</li>
+</ul>
+
+<h2 style="margin-top:40px;">Preferred Skills</h2>
+
+<ul class="career-list">
+<li>Experience with AI API integrations</li>
+<li>Knowledge of cloud platforms (AWS / Azure / GCP)</li>
+<li>Experience with CI/CD pipelines</li>
+<li>Understanding of modern DevOps workflows</li>
+</ul>
+
+<h2 style="margin-top:40px;">What You Will Gain</h2>
+
+<ul class="career-list">
+<li>Experience building real-world production applications</li>
+<li>Opportunity to work on AI-powered platforms</li>
+<li>Exposure to modern full stack technologies</li>
+<li>Fast career growth in software engineering</li>
+</ul>
+
+</div>
+
+<!-- RIGHT SIDEBAR -->
+
+<div>
+
+<div class="card">
+
+<h3>Job Details</h3>
+
+<p><strong>Role</strong><br>Full Stack Developer</p>
+
+<p><strong>Department</strong><br>Engineering</p>
+
+<p><strong>Location</strong><br>Remote / Hybrid</p>
+
+<p><strong>Type</strong><br>Internship / Full-Time</p>
+
+</div>
+
+<div class="card" style="margin-top:30px;">
+
+<h3>Hiring Process</h3>
+
+<ul class="career-list">
+<li>Application Review</li>
+<li>Technical Assessment</li>
+<li>Development Interview</li>
+<li>Final Discussion</li>
+</ul>
+
+</div>
+
+<div class="card" style="margin-top:30px;text-align:center;">
+
+<h3>Apply for this Role</h3>
+
+<p>Send your resume to</p>
+
+<p style="font-weight:600;margin:10px 0;">careers@yourcompany.com</p>
+
+<button class="btn-expert">Submit Application</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="career_datascientist">
+<div class="container">
+
+<span class="section-tag">Career Opportunity</span>
+
+<h1 class="hero-title">Data Scientist – AI Analytics & Machine Learning</h1>
+
+<p style="max-width:800px;margin-top:30px;">
+We are looking for a Data Scientist who can transform complex datasets into
+valuable business insights. This role focuses on data analysis, predictive
+modeling, and building intelligent systems powered by machine learning.
+</p>
+
+<div class="career-details-grid" style="margin-top:80px;display:grid;grid-template-columns:2fr 1fr;gap:60px;">
+
+<!-- LEFT SIDE -->
+
+<div>
+
+<h2>About the Role</h2>
+
+<p>
+You will work with large datasets to identify trends, build predictive models,
+and develop intelligent solutions that help businesses make data-driven
+decisions. This role combines analytics, machine learning, and business
+intelligence.
+</p>
+
+<h2 style="margin-top:40px;">Key Responsibilities</h2>
+
+<ul class="career-list">
+<li>Analyze large datasets to discover insights and trends.</li>
+<li>Develop machine learning and predictive models.</li>
+<li>Perform data cleaning, transformation, and preprocessing.</li>
+<li>Create data visualizations and business dashboards.</li>
+<li>Collaborate with engineering teams to deploy models.</li>
+<li>Develop data pipelines and analytical workflows.</li>
+</ul>
+
+<h2 style="margin-top:40px;">Required Skills</h2>
+
+<ul class="career-list">
+<li>Strong knowledge of Python for data analysis</li>
+<li>Experience with Pandas, NumPy, and data processing</li>
+<li>Understanding of statistics and machine learning concepts</li>
+<li>Experience with data visualization tools</li>
+<li>Knowledge of SQL and database querying</li>
+<li>Strong analytical and problem-solving skills</li>
+<li>Ability to interpret and communicate data insights</li>
+</ul>
+
+<h2 style="margin-top:40px;">Preferred Skills</h2>
+
+<ul class="career-list">
+<li>Experience with machine learning frameworks</li>
+<li>Knowledge of TensorFlow or PyTorch</li>
+<li>Experience with big data tools</li>
+<li>Experience building data dashboards (Tableau / Power BI)</li>
+</ul>
+
+<h2 style="margin-top:40px;">What You Will Gain</h2>
+
+<ul class="career-list">
+<li>Hands-on experience working with real-world datasets</li>
+<li>Opportunity to build AI and machine learning systems</li>
+<li>Exposure to advanced data science tools</li>
+<li>Career growth in the AI and analytics industry</li>
+</ul>
+
+</div>
+
+<!-- RIGHT SIDEBAR -->
+
+<div>
+
+<div class="card">
+
+<h3>Job Details</h3>
+
+<p><strong>Role</strong><br>Data Scientist</p>
+
+<p><strong>Department</strong><br>Data & AI</p>
+
+<p><strong>Location</strong><br>Remote / Hybrid</p>
+
+<p><strong>Type</strong><br>Internship / Full-Time</p>
+
+</div>
+
+<div class="card" style="margin-top:30px;">
+
+<h3>Hiring Process</h3>
+
+<ul class="career-list">
+<li>Application Review</li>
+<li>Data Skills Assessment</li>
+<li>Technical Interview</li>
+<li>Final Discussion</li>
+</ul>
+
+</div>
+
+<div class="card" style="margin-top:30px;text-align:center;">
+
+<h3>Apply for this Role</h3>
+
+<p>Send your resume to</p>
+
+<p style="font-weight:600;margin:10px 0;">careers@yourcompany.com</p>
+
+<button class="btn-expert">Submit Application</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
     <section id="services">
         <div class="container">
             <span class="hero-sub">OUR CAPABILITIES</span>
