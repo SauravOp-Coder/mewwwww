@@ -30,6 +30,7 @@
             --mode-card: #1A1C21;
             --testimonials-section: #1A1C21;
             --testimonial-card: #1A1C21;
+            
         }
 
         [data-theme="light"] {
@@ -798,144 +799,113 @@ text-align:center;
 }
    </style>
 
-   <style>
-    /* ===============================
-CAREER DETAILS LAYOUT
-=============================== */
-
-.career-details-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:60px;
+<style>
+    #careers_details{
+padding:100px 0;
 }
 
+.career-details-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:60px;
+margin-top:70px;
+}
 
-/* ===============================
-CAREER LIST
-=============================== */
+.hero-desc{
+max-width:800px;
+margin-top:25px;
+}
+
+/* LEFT SIDE */
+
+.career-main h2{
+margin-top:40px;
+font-size:24px;
+}
 
 .career-list{
-    margin-top:20px;
-    padding-left:20px;
+margin-top:15px;
+padding-left:20px;
 }
 
 .career-list li{
-    margin-bottom:10px;
-    line-height:1.6;
+margin-bottom:10px;
+line-height:1.6;
 }
 
 
-/* ===============================
-SIDEBAR CARDS
-=============================== */
+/* RIGHT JOB CARD */
 
-.card{
-    padding:30px;
-    border-radius:10px;
-    background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,0.08);
+.job-card{ background: var(--bg-card);
+padding:35px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,0.08);
+height:fit-content;
+position:sticky;
+top:120px;
 }
 
-.card h3{
-    margin-bottom:20px;
+.job-card h3{
+margin-bottom:25px;
 }
 
-.card p{
-    margin-bottom:15px;
-    line-height:1.6;
+.job-item{
+margin-bottom:20px;
 }
 
-
-/* ===============================
-BUTTON
-=============================== */
-
-.btn-expert{
-    margin-top:20px;
-    padding:12px 24px;
-    border:none;
-    border-radius:6px;
-    font-weight:600;
-    cursor:pointer;
-    background:#D4A76A;
-    color:#111;
-    transition:all 0.3s ease;
+.job-item span{
+font-size:13px;
+opacity:.6;
 }
 
-.btn-expert:hover{
-    transform:translateY(-2px);
+.job-item p{
+margin-top:4px;
+font-weight:500;
 }
 
+.apply-btn{
+width:100%;
+margin-top:20px;
+padding:14px;
+background:#D4A76A;
+border:none;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
 
-/* ===============================
-TABLET RESPONSIVE
-=============================== */
-
-@media (max-width: 992px){
-
-    .career-details-grid{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
-
-    .career-details-grid > div:nth-child(2){
-        order:-1;
-    }
-
-    .card{
-        padding:25px;
-    }
-
+.apply-btn:hover{
+opacity:.9;
 }
 
 
-/* ===============================
-MOBILE RESPONSIVE
-=============================== */
+/* MOBILE DESIGN */
 
-@media (max-width: 600px){
+@media (max-width:768px){
 
-    .hero-title{
-        font-size:28px;
-        line-height:1.3;
-    }
+.career-details-grid{
+grid-template-columns:1fr;
+gap:40px;
+}
 
-    .section-tag{
-        font-size:13px;
-    }
+.hero-title{
+font-size:28px;
+}
 
-    .career-list li{
-        font-size:14px;
-    }
+.hero-desc{
+font-size:15px;
+}
 
-    .card{
-        padding:22px;
-    }
-
-    .btn-expert{
-        width:100%;
-    }
+.job-card{
+position:relative;
+top:auto;
+}
 
 }
 
 
-/* ===============================
-SMALL MOBILE
-=============================== */
-
-@media (max-width: 400px){
-
-    .hero-title{
-        font-size:24px;
-    }
-
-    .career-list li{
-        font-size:13px;
-    }
-
-}
-   </style>
+</style>
 </head>
 <body data-theme="light">
 
@@ -1285,7 +1255,7 @@ We build AI systems that analyze, predict, and decide.
                 <h3>Full Stack Developer</h3>
                 <p>Strong knowledge of frontend and backend development with experience in modern frameworks, databases, and API integration. Good problem-solving skills and development project or internship experience required.</p>
             
-        <button class="btn-expert" onclick="showPage('careers_details')">
+        <button class="btn-expert" onclick="showPage('careers_details2')">
             Details
         </button>
     
@@ -1294,7 +1264,7 @@ We build AI systems that analyze, predict, and decide.
             <div class="card">
                 <h3>Data Scientist</h3>
                 <p>Strong foundation in data analysis, Python, and machine learning with experience in data visualization and real-world datasets. Good analytical thinking and internship or project experience required.</p>
-                                <button class="btn-expert" style="margin-top:20px;" onclick="showPage('career_datascientist')">Details</button>
+                                <button class="btn-expert" style="margin-top:20px;" onclick="showPage('careers_details3')">Details</button>
 
             </div>
         </div>
@@ -1308,7 +1278,7 @@ We build AI systems that analyze, predict, and decide.
 
 <h1 class="hero-title">AI Engineer – Generative AI & Prompt Engineering</h1>
 
-<p style="max-width:800px;margin-top:30px;">
+<p class="hero-desc">
 We are looking for a passionate AI Engineer who can build modern generative AI
 solutions using prompt engineering, AI automation tools, and generative media
 platforms. This role focuses on designing intelligent workflows and building
@@ -1316,11 +1286,10 @@ AI-powered systems for real-world applications.
 </p>
 
 
-<div class="career-details-grid" style="margin-top:80px;display:grid;grid-template-columns:2fr 1fr;gap:60px;">
-
+<div class="career-details-grid">
 
 <!-- LEFT SIDE -->
-<div>
+<div class="career-main">
 
 <h2>About the Role</h2>
 
@@ -1331,7 +1300,7 @@ business intelligence systems.
 </p>
 
 
-<h2 style="margin-top:40px;">Key Responsibilities</h2>
+<h2>Key Responsibilities</h2>
 
 <ul class="career-list">
 <li>Design advanced prompts for Large Language Models.</li>
@@ -1343,356 +1312,313 @@ business intelligence systems.
 </ul>
 
 
-<h2 style="margin-top:40px;">Required Skills</h2>
+<h2>Required Skills</h2>
 
 <ul class="career-list">
-
 <li>Strong knowledge of Prompt Engineering</li>
-
 <li>Experience using AI tools and platforms</li>
-
 <li>Understanding of Generative AI concepts</li>
-
 <li>Ability to design AI workflows & automations</li>
-
 <li>Ability to generate AI videos using AI tools</li>
-
-<li>Excellent English communication skills (Mandatory)</li>
-
+<li>Excellent English communication skills</li>
 <li>Internship experience in AI / ML / GenAI</li>
-
 </ul>
 
 
-<h2 style="margin-top:40px;">Preferred Skills</h2>
+<h2>Preferred Skills</h2>
 
 <ul class="career-list">
-
 <li>Experience working with AI APIs</li>
-
-<li>Basic programming knowledge (Python or JavaScript)</li>
-
-<li>Understanding of AI agents and automation systems</li>
-
+<li>Basic programming knowledge (Python / JavaScript)</li>
+<li>Understanding of AI agents & automation systems</li>
 <li>Experience building AI powered applications</li>
-
 </ul>
 
 
-<h2 style="margin-top:40px;">What You Will Gain</h2>
+<h2>What You Will Gain</h2>
 
 <ul class="career-list">
-
-<li>Hands-on experience with modern Generative AI technologies</li>
-
-<li>Opportunity to work on real-world AI products</li>
-
-<li>Exposure to enterprise AI development workflows</li>
-
-<li>Career growth in the AI engineering field</li>
-
+<li>Hands-on experience with modern Generative AI</li>
+<li>Work on real-world AI products</li>
+<li>Exposure to enterprise AI workflows</li>
+<li>Strong career growth in AI engineering</li>
 </ul>
 
 </div>
 
 
-<!-- RIGHT SIDEBAR -->
 
-<div>
+<!-- RIGHT SIDE JOB CARD -->
 
-<div class="card">
+<div class="job-card">
 
-<h3>Job Details</h3>
+<h3>Job Summary</h3>
 
-<p><strong>Role</strong><br>AI Engineer</p>
-
-<p><strong>Department</strong><br>Artificial Intelligence</p>
-
-<p><strong>Location</strong><br>Remote / Hybrid</p>
-
-<p><strong>Type</strong><br>Internship / Full-Time</p>
-
+<div class="job-item">
+<span>Role</span>
+<p>AI Engineer</p>
 </div>
 
-
-<div class="card" style="margin-top:30px;">
-
-<h3>Hiring Process</h3>
-
-<ul class="career-list">
-
-<li>Application Review</li>
-
-<li>AI Skills Assessment</li>
-
-<li>Technical Interview</li>
-
-<li>Final Discussion</li>
-
-</ul>
-
+<div class="job-item">
+<span>Type</span>
+<p>Full Time</p>
 </div>
 
+<div class="job-item">
+<span>Experience</span>
+<p>0 – 2 Years</p>
+</div>
 
-<div class="card" style="margin-top:30px;text-align:center;">
+<div class="job-item">
+<span>Location</span>
+<p>Remote / India</p>
+</div>
 
-<h3>Apply for this Role</h3>
+<div class="job-item">
+<span>Department</span>
+<p>Artificial Intelligence</p>
+</div>
 
-<p>Send your resume to</p>
-
-<p style="font-weight:600;margin:10px 0;">careers@yourcompany.com</p>
-
-<button class="btn-expert">Submit Application</button>
+<button class="apply-btn">Apply Now</button>
 
 </div>
 
 </div>
-
-</div>
-
 </div>
 </section>
 
-<section id="career_fullstack">
+<section id="careers_details2">
 <div class="container">
 
 <span class="section-tag">Career Opportunity</span>
 
-<h1 class="hero-title">Full Stack Developer – Web Platforms & AI Integration</h1>
+<h1 class="hero-title">Full Stack Developer – Web Applications</h1>
 
-<p style="max-width:800px;margin-top:30px;">
-We are looking for a talented Full Stack Developer who can build modern web
-applications and scalable platforms. This role focuses on developing
-high-performance frontend interfaces, robust backend systems, and integrating
-AI-powered features into web products.
+<p class="hero-desc">
+We are looking for a skilled Full Stack Developer who can build modern,
+scalable web applications from frontend interfaces to backend systems.
+This role involves developing high-performance applications, integrating
+APIs, and creating reliable digital platforms for real-world business
+solutions.
 </p>
 
-<div class="career-details-grid" style="margin-top:80px;display:grid;grid-template-columns:2fr 1fr;gap:60px;">
+
+<div class="career-details-grid">
 
 <!-- LEFT SIDE -->
-
-<div>
+<div class="career-main">
 
 <h2>About the Role</h2>
 
 <p>
-You will work on building scalable digital products from frontend to backend.
-This includes designing modern UI interfaces, developing secure APIs,
-integrating databases, and implementing AI-driven functionality inside
-web applications.
+You will work on both frontend and backend development to create complete
+web applications. The role involves designing user interfaces, building
+server-side logic, integrating databases, and ensuring smooth performance
+across the entire system.
 </p>
 
-<h2 style="margin-top:40px;">Key Responsibilities</h2>
+
+<h2>Key Responsibilities</h2>
 
 <ul class="career-list">
-<li>Develop responsive and modern frontend interfaces.</li>
-<li>Build scalable backend APIs and application logic.</li>
-<li>Integrate third-party APIs and AI services.</li>
-<li>Design and manage databases for web applications.</li>
-<li>Optimize performance and application security.</li>
+<li>Develop modern responsive web interfaces.</li>
+<li>Build backend APIs and server-side applications.</li>
+<li>Integrate databases and manage data efficiently.</li>
+<li>Connect frontend applications with backend services.</li>
+<li>Optimize performance and application scalability.</li>
 <li>Collaborate with designers and product teams.</li>
 </ul>
 
-<h2 style="margin-top:40px;">Required Skills</h2>
+
+<h2>Required Skills</h2>
 
 <ul class="career-list">
 <li>Strong knowledge of HTML, CSS, and JavaScript</li>
-<li>Experience with modern frontend frameworks (React / Next.js / Vue)</li>
-<li>Backend development with Node.js or Python</li>
-<li>Experience working with REST APIs</li>
-<li>Knowledge of databases (MongoDB, MySQL, PostgreSQL)</li>
-<li>Understanding of Git version control</li>
-<li>Good problem-solving and development practices</li>
+<li>Experience with modern frontend frameworks (React / Vue / Angular)</li>
+<li>Backend development using Node.js, Express, or similar</li>
+<li>Database knowledge (MongoDB, MySQL, or PostgreSQL)</li>
+<li>Understanding of REST APIs and integrations</li>
+<li>Version control using Git</li>
+<li>Good problem-solving and communication skills</li>
 </ul>
 
-<h2 style="margin-top:40px;">Preferred Skills</h2>
+
+<h2>Preferred Skills</h2>
 
 <ul class="career-list">
-<li>Experience with AI API integrations</li>
-<li>Knowledge of cloud platforms (AWS / Azure / GCP)</li>
-<li>Experience with CI/CD pipelines</li>
-<li>Understanding of modern DevOps workflows</li>
+<li>Experience with cloud platforms</li>
+<li>Knowledge of authentication systems and security</li>
+<li>Experience deploying web applications</li>
+<li>Understanding of performance optimization</li>
 </ul>
 
-<h2 style="margin-top:40px;">What You Will Gain</h2>
+
+<h2>What You Will Gain</h2>
 
 <ul class="career-list">
-<li>Experience building real-world production applications</li>
-<li>Opportunity to work on AI-powered platforms</li>
-<li>Exposure to modern full stack technologies</li>
-<li>Fast career growth in software engineering</li>
+<li>Hands-on experience building full-scale web applications</li>
+<li>Opportunity to work on real-world digital platforms</li>
+<li>Exposure to modern development workflows</li>
+<li>Strong career growth in full stack development</li>
 </ul>
 
 </div>
 
-<!-- RIGHT SIDEBAR -->
 
-<div>
 
-<div class="card">
+<!-- RIGHT SIDE JOB CARD -->
 
-<h3>Job Details</h3>
+<div class="job-card">
 
-<p><strong>Role</strong><br>Full Stack Developer</p>
+<h3>Job Summary</h3>
 
-<p><strong>Department</strong><br>Engineering</p>
-
-<p><strong>Location</strong><br>Remote / Hybrid</p>
-
-<p><strong>Type</strong><br>Internship / Full-Time</p>
-
+<div class="job-item">
+<span>Role</span>
+<p>Full Stack Developer</p>
 </div>
 
-<div class="card" style="margin-top:30px;">
-
-<h3>Hiring Process</h3>
-
-<ul class="career-list">
-<li>Application Review</li>
-<li>Technical Assessment</li>
-<li>Development Interview</li>
-<li>Final Discussion</li>
-</ul>
-
+<div class="job-item">
+<span>Type</span>
+<p>Full Time</p>
 </div>
 
-<div class="card" style="margin-top:30px;text-align:center;">
+<div class="job-item">
+<span>Experience</span>
+<p>0 – 2 Years</p>
+</div>
 
-<h3>Apply for this Role</h3>
+<div class="job-item">
+<span>Location</span>
+<p>Remote / India</p>
+</div>
 
-<p>Send your resume to</p>
+<div class="job-item">
+<span>Department</span>
+<p>Engineering</p>
+</div>
 
-<p style="font-weight:600;margin:10px 0;">careers@yourcompany.com</p>
-
-<button class="btn-expert">Submit Application</button>
+<button class="apply-btn">Apply Now</button>
 
 </div>
 
 </div>
-
-</div>
-
 </div>
 </section>
 
-<section id="career_datascientist">
+<section id="careers_details3">
 <div class="container">
 
 <span class="section-tag">Career Opportunity</span>
 
-<h1 class="hero-title">Data Scientist – AI Analytics & Machine Learning</h1>
+<h1 class="hero-title">Data Scientist – Data Analytics & Machine Learning</h1>
 
-<p style="max-width:800px;margin-top:30px;">
-We are looking for a Data Scientist who can transform complex datasets into
-valuable business insights. This role focuses on data analysis, predictive
-modeling, and building intelligent systems powered by machine learning.
+<p class="hero-desc">
+We are looking for a motivated Data Scientist who can analyze complex datasets,
+build predictive models, and generate meaningful business insights. This role
+focuses on applying data analysis, machine learning, and statistical techniques
+to solve real-world problems and support data-driven decision making.
 </p>
 
-<div class="career-details-grid" style="margin-top:80px;display:grid;grid-template-columns:2fr 1fr;gap:60px;">
+
+<div class="career-details-grid">
 
 <!-- LEFT SIDE -->
-
-<div>
+<div class="career-main">
 
 <h2>About the Role</h2>
 
 <p>
-You will work with large datasets to identify trends, build predictive models,
-and develop intelligent solutions that help businesses make data-driven
-decisions. This role combines analytics, machine learning, and business
-intelligence.
+You will work with large datasets to extract insights, build machine learning
+models, and develop analytical solutions that help businesses make strategic
+decisions. The role involves data preparation, analysis, modeling, and
+visualizing insights for stakeholders.
 </p>
 
-<h2 style="margin-top:40px;">Key Responsibilities</h2>
+
+<h2>Key Responsibilities</h2>
 
 <ul class="career-list">
-<li>Analyze large datasets to discover insights and trends.</li>
-<li>Develop machine learning and predictive models.</li>
-<li>Perform data cleaning, transformation, and preprocessing.</li>
-<li>Create data visualizations and business dashboards.</li>
-<li>Collaborate with engineering teams to deploy models.</li>
-<li>Develop data pipelines and analytical workflows.</li>
+<li>Collect, clean, and process large datasets.</li>
+<li>Analyze structured and unstructured data.</li>
+<li>Build predictive models using machine learning techniques.</li>
+<li>Create dashboards and visualizations for business insights.</li>
+<li>Identify patterns and trends within data.</li>
+<li>Collaborate with engineering and business teams.</li>
 </ul>
 
-<h2 style="margin-top:40px;">Required Skills</h2>
+
+<h2>Required Skills</h2>
 
 <ul class="career-list">
 <li>Strong knowledge of Python for data analysis</li>
-<li>Experience with Pandas, NumPy, and data processing</li>
+<li>Experience with libraries like Pandas, NumPy, and Scikit-learn</li>
 <li>Understanding of statistics and machine learning concepts</li>
 <li>Experience with data visualization tools</li>
-<li>Knowledge of SQL and database querying</li>
-<li>Strong analytical and problem-solving skills</li>
-<li>Ability to interpret and communicate data insights</li>
+<li>Knowledge of SQL and database systems</li>
+<li>Ability to analyze and interpret complex data</li>
+<li>Good communication and analytical thinking</li>
 </ul>
 
-<h2 style="margin-top:40px;">Preferred Skills</h2>
+
+<h2>Preferred Skills</h2>
 
 <ul class="career-list">
-<li>Experience with machine learning frameworks</li>
-<li>Knowledge of TensorFlow or PyTorch</li>
-<li>Experience with big data tools</li>
-<li>Experience building data dashboards (Tableau / Power BI)</li>
+<li>Experience with deep learning frameworks</li>
+<li>Knowledge of big data technologies</li>
+<li>Experience using tools like Tableau or Power BI</li>
+<li>Understanding of data pipelines and ETL processes</li>
 </ul>
 
-<h2 style="margin-top:40px;">What You Will Gain</h2>
+
+<h2>What You Will Gain</h2>
 
 <ul class="career-list">
-<li>Hands-on experience working with real-world datasets</li>
-<li>Opportunity to build AI and machine learning systems</li>
-<li>Exposure to advanced data science tools</li>
-<li>Career growth in the AI and analytics industry</li>
+<li>Hands-on experience with real-world data projects</li>
+<li>Opportunity to build machine learning models</li>
+<li>Exposure to modern data science workflows</li>
+<li>Career growth in the data science field</li>
 </ul>
 
 </div>
 
-<!-- RIGHT SIDEBAR -->
 
-<div>
 
-<div class="card">
+<!-- RIGHT SIDE JOB CARD -->
 
-<h3>Job Details</h3>
+<div class="job-card">
 
-<p><strong>Role</strong><br>Data Scientist</p>
+<h3>Job Summary</h3>
 
-<p><strong>Department</strong><br>Data & AI</p>
-
-<p><strong>Location</strong><br>Remote / Hybrid</p>
-
-<p><strong>Type</strong><br>Internship / Full-Time</p>
-
+<div class="job-item">
+<span>Role</span>
+<p>Data Scientist</p>
 </div>
 
-<div class="card" style="margin-top:30px;">
-
-<h3>Hiring Process</h3>
-
-<ul class="career-list">
-<li>Application Review</li>
-<li>Data Skills Assessment</li>
-<li>Technical Interview</li>
-<li>Final Discussion</li>
-</ul>
-
+<div class="job-item">
+<span>Type</span>
+<p>Full Time</p>
 </div>
 
-<div class="card" style="margin-top:30px;text-align:center;">
+<div class="job-item">
+<span>Experience</span>
+<p>0 – 2 Years</p>
+</div>
 
-<h3>Apply for this Role</h3>
+<div class="job-item">
+<span>Location</span>
+<p>Remote / India</p>
+</div>
 
-<p>Send your resume to</p>
+<div class="job-item">
+<span>Department</span>
+<p>Data Science & Analytics</p>
+</div>
 
-<p style="font-weight:600;margin:10px 0;">careers@yourcompany.com</p>
-
-<button class="btn-expert">Submit Application</button>
+<button class="apply-btn">Apply Now</button>
 
 </div>
 
 </div>
-
-</div>
-
 </div>
 </section>
 
