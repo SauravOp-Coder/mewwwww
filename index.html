@@ -906,6 +906,107 @@ top:auto;
 
 
 </style>
+
+
+<style>
+    .footer{
+padding:80px 0 40px;
+border-top:1px solid var(--border);
+}
+
+.footer-logo{
+height:38px;
+margin-bottom:15px;
+}
+
+.footer-desc{
+font-size:0.9rem;
+opacity:0.7;
+max-width:260px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:50px;
+margin-bottom:50px;
+}
+
+.footer-links h4{
+margin-bottom:15px;
+font-size:0.9rem;
+}
+
+.footer-links ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.footer-links li{
+margin-bottom:10px;
+cursor:pointer;
+opacity:0.7;
+font-size:0.85rem;
+transition:0.3s;
+}
+
+.footer-links li:hover{
+opacity:1;
+}
+
+.footer-social{
+display:flex;
+gap:16px;
+margin-top:10px;
+opacity:0.8;
+}
+
+.footer-social i{
+cursor:pointer;
+}
+
+.footer-bottom{
+text-align:center;
+font-size:0.75rem;
+opacity:0.4;
+border-top:1px solid var(--border);
+padding-top:25px;
+}
+
+
+@media (max-width: 992px){
+
+.footer-grid{
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+}
+
+}
+
+@media (max-width: 600px){
+
+.footer{
+padding:60px 0 30px;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+gap:35px;
+text-align:center;
+}
+
+.footer-desc{
+margin:auto;
+}
+
+.footer-social{
+justify-content:center;
+}
+
+}
+
+</style>
 </head>
 <body data-theme="light">
 
@@ -1820,30 +1921,79 @@ visualizing insights for stakeholders.
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="footer-logo">DATASPY TECH</div>
-                    <p style="font-size: 0.8rem; opacity: 0.6;">Architecting production-ready AI systems.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <ul><li>Home</li><li>About Us</li></ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Social</h4>
-                    <div style="display: flex; gap: 15px; margin-top: 10px; color: var(--text-main);">
-                        <i data-lucide="linkedin" size="18"></i>
-                        <i data-lucide="github" size="18"></i>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; font-size: 0.7rem; opacity: 0.3; border-top: 1px solid var(--border); padding-top: 30px;">
-                © 2026 DataSpy Technologies.
-            </p>
-        </div>
-    </footer>
+    <footer class="footer">
+<div class="container">
+
+<div class="footer-grid">
+
+<!-- COMPANY -->
+<div class="footer-brand">
+
+<img src="IMG_20260303_112733.png" alt="DataSpy Logo" class="footer-logo">
+
+<p class="footer-desc">
+DataSpy Technologies builds enterprise AI systems, automation platforms,
+and data intelligence solutions that help businesses make smarter decisions.
+</p>
+
+</div>
+
+
+<!-- COMPANY LINKS -->
+<div class="footer-links">
+
+<h4>Company</h4>
+
+<ul>
+<li onclick="showPage('home')">Overview</li>
+<li onclick="showPage('about')">About Us</li>
+<li onclick="showPage('careers')">Careers</li>
+<li onclick="showPage('contact')">Contact</li>
+</ul>
+
+</div>
+
+
+<!-- SOLUTIONS -->
+<div class="footer-links">
+
+<h4>AI Solutions</h4>
+
+<ul>
+<li onclick="showPage('product_decision_ai')">Products</li>
+<li onclick="showPage('services')">Services</li>
+<li onclick="showPage('training')">AI Training</li>
+</ul>
+
+</div>
+
+
+<!-- SOCIAL -->
+<div class="footer-links">
+
+<h4>Connect</h4>
+
+<div class="footer-social">
+
+<i data-lucide="linkedin"></i>
+<i data-lucide="github"></i>
+<i data-lucide="twitter"></i>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>© 2026 DataSpy Technologies. All rights reserved.</p>
+
+</div>
+
+</div>
+</footer>
 
     <script>
         lucide.createIcons();
